@@ -1,0 +1,22 @@
+{
+  "name": "vertical-writing",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs --dts",
+    "dev": "tsup src/index.ts --format cjs --dts",
+    "lint": "eslint *.ts*"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "*",
+    "tsconfig": "*",
+    "tsup": "^6.2.3",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "just-debounce-it": "^3.1.1"
+  }
+}
