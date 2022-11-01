@@ -6,7 +6,23 @@ export type VerticalWritingType = {
   deActivate: () => void
 }
 
-export function VerticalWriting <T extends HTMLElement>(el: T): VerticalWritingType {
+export type VerticalWritingOptionsType = Partial<{
+  spacing: 'margin' | 'padding',
+  delayTime: number
+}>
+
+export function VerticalWriting <T extends HTMLElement>(
+  el: T,
+  { spacing, delayTime }: VerticalWritingOptionsType = { spacing: 'margin', delayTime: 100 }
+): VerticalWritingType {
+  if (typeof spacing === 'undefined') {
+    spacing = 'margin'
+  }
+
+  if (typeof delayTime === 'undefined') {
+    delayTime = 100
+  }
+
   const adjustSize = () => {
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
@@ -14,18 +30,27 @@ export function VerticalWriting <T extends HTMLElement>(el: T): VerticalWritingT
           return
         }
 
-        el.style.marginBottom = ''
+        if (spacing === 'margin') {
+          el.style.marginBottom = ''
+        } else {
+          el.style.paddingBottom = ''
+        }
+
         const fullHeight = el.scrollHeight
         const defaultHeight = Number(
           getComputedStyle(el).height.replace('px', '')
         )
-        el.style.marginBottom = `${fullHeight - defaultHeight}px`
+        if (spacing === 'margin') {
+          el.style.marginBottom = `${fullHeight - defaultHeight}px`
+        } else {
+          el.style.paddingBottom = `${fullHeight - defaultHeight}px`
+        }
       })
     })
   }
 
   const adjustSizeCallback = () => adjustSize()
-  const debouncedAdjustSize = debounce(adjustSizeCallback, 100)
+  const debouncedAdjustSize = debounce(adjustSizeCallback, delayTime)
 
   const activate = () => {
     adjustSize()
