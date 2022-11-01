@@ -1,6 +1,6 @@
 {
   "name": "vertical-writing",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "./dist/index.global.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -22,5 +22,8 @@
   },
   "dependencies": {
     "just-debounce-it": "^3.1.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

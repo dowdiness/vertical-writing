@@ -1,6 +1,6 @@
 {
   "name": "vertical-writing-react",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "./dist/index.global.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -27,5 +27,8 @@
   },
   "peerDependencies": {
     "react": "^17.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
