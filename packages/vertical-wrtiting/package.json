@@ -7,9 +7,12 @@
   "license": "MIT",
   "scripts": {
     "build": "tsup src/index.ts --format esm,iife --dts",
-    "dev": "tsup src/index.ts --format esm,iife --dts",
-    "lint": "eslint *.ts*"
+    "dev": "tsup src/index.ts --format esm,iife --dts --watch",
+    "lint": "eslint src/*.ts*"
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
