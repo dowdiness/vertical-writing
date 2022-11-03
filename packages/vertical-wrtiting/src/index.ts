@@ -7,19 +7,19 @@ export type VerticalWritingType = {
 };
 
 export type VerticalWritingOptionsType = Partial<{
-  spacing: "margin" | "padding";
+  spacing: "padding" | "margin";
   delayTime: number;
 }>;
 
 export function VerticalWriting<T extends HTMLElement>(
   el: T,
   { spacing, delayTime }: VerticalWritingOptionsType = {
-    spacing: "margin",
+    spacing: "padding",
     delayTime: 100,
   }
 ): VerticalWritingType {
   if (typeof spacing === "undefined") {
-    spacing = "margin";
+    spacing = "padding";
   }
 
   if (typeof delayTime === "undefined") {
@@ -33,20 +33,20 @@ export function VerticalWriting<T extends HTMLElement>(
           return;
         }
 
-        if (spacing === "margin") {
-          el.style.marginBottom = "";
-        } else {
+        if (spacing === "padding") {
           el.style.paddingBottom = "";
+        } else {
+          el.style.marginBottom = "";
         }
 
         const fullHeight = el.scrollHeight;
         const defaultHeight = Number(
           getComputedStyle(el).height.replace("px", "")
         );
-        if (spacing === "margin") {
-          el.style.marginBottom = `${fullHeight - defaultHeight}px`;
-        } else {
+        if (spacing === "padding") {
           el.style.paddingBottom = `${fullHeight - defaultHeight}px`;
+        } else {
+          el.style.marginBottom = `${fullHeight - defaultHeight}px`;
         }
       });
     });
