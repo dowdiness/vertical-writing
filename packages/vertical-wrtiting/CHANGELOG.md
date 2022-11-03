@@ -1,5 +1,11 @@
 # vertical-writing
 
+## 0.3.0
+
+### Minor Changes
+
+- add readmes about how to use this library
+
 ## 0.2.0
 
 ### Minor Changes
