@@ -14,7 +14,6 @@
     "dist"
   ],
   "devDependencies": {
-    "eslint": "^7.32.0",
     "eslint-config-custom": "*",
     "tsconfig": "*",
     "tsup": "^6.2.3",

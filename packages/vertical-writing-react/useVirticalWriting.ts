@@ -15,6 +15,7 @@ export const useVirticalWriting = <T extends HTMLElement>(
   const virticalRef = useRef<T>(null);
 
   useIsomorphicLayoutEffect(() => {
+    /* eslint @typescript-eslint/no-non-null-assertion: 0 */
     const vw = VerticalWriting(virticalRef.current!, options);
     vw.activate();
     return () => vw.deActivate();
