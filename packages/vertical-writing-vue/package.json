@@ -1,0 +1,33 @@
+{
+  "name": "vertical-writing-vue",
+  "version": "0.0.1",
+  "main": "./dist/index.global.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup ./index.ts --format esm,iife --dts",
+    "dev": "tsup ./index.ts --format esm,iife --dts --watch",
+    "lint": "eslint *.ts*"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "*",
+    "tsconfig": "*",
+    "tsup": "^6.2.3",
+    "typescript": "^4.5.2",
+    "vue": "^3.2.37"
+  },
+  "dependencies": {
+    "vertical-writing": "*"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.37"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
