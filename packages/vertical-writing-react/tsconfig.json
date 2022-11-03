@@ -1,13 +1,8 @@
 {
+  "extends": "tsconfig/base.json",
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
-    "esModuleInterop": true,
-    "sourceMap": true,
-    "strict": true,
-    "declaration": true,
-    "declarationDir": "./",
-    "moduleResolution": "node",
     "jsx": "react"
   },
   "include": ["."],
