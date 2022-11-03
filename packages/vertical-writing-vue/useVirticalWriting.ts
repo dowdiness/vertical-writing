@@ -1,4 +1,4 @@
-import { Ref, ref, isRef, watch, onMounted, onUnmounted } from "vue";
+import { Ref, ref, onMounted, onUnmounted } from "vue";
 import VerticalWriting from "vertical-writing";
 import { canUseDOM } from "./util";
 import type {
