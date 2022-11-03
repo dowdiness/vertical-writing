@@ -1,77 +1,27 @@
-# Turborepo starter
+# Vertical Writing
 
-This is an official Yarn v1 starter turborepo.
+**Vertical Writing** is a bare bones multi-column layout library to solve layout problem when using CSS Writing Modes. It's library agnostic and 100% open source.
 
-## What's inside?
+## What is the problem?
 
-This turborepo uses [Yarn](https://classic.yarnpkg.com/lang/en/) as a package manager. It includes the following packages/apps:
+When you combine [writing-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode) for vertical writing and [multi-column layouts](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Columns/Using_multi-column_layouts) together, the height of the contents will be the first collumn of height.
 
-### Apps and Packages
+Therefore, if you put some contents after this, they will be overlapped with the multi-column layouts contents.
 
-- `docs`: a [Next.js](https://nextjs.org) app
-- `web`: another [Next.js](https://nextjs.org) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+This library solves this problem by adding padding/margin-bottom to fill out the gap between the multi-column layouts contents and after contents.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+![vertical-writing](https://user-images.githubusercontent.com/1616717/199655597-21f960c9-ac4e-4df8-8525-b5742cce9608.gif)
 
-### Utilities
+## Packages
 
-This turborepo has some additional tools already setup for you:
+- [vertical-writing](https://github.com/dowdiness/vertical-writing/tree/main/packages/vertical-wrtiting): vanilla js version of vertical-writing that all other packages depend on
+- [vertical-writing-react](https://github.com/dowdiness/vertical-writing/tree/main/packages/vertical-writing-react): react hooks version of vertical-writing
+- [vertical-writing-vue](https://github.com/dowdiness/vertical-writing/tree/main/packages/vertical-writing-vue): vue composable version of vertical-writing
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+Each package is 100% [TypeScript](https://www.typescriptlang.org/).
 
-## Setup
+## Examples
 
-This repository is used in the `npx create-turbo` command, and selected when choosing which package manager you wish to use with your monorepo (Yarn).
+[React Example](https://codesandbox.io/s/vertical-writing-react-ob4wn1)
 
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-yarn run build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-yarn run dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Pipelines](https://turborepo.org/docs/core-concepts/pipelines)
-- [Caching](https://turborepo.org/docs/core-concepts/caching)
-- [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching)
-- [Scoped Tasks](https://turborepo.org/docs/core-concepts/scopes)
-- [Configuration Options](https://turborepo.org/docs/reference/configuration)
-- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
+[Vue Example](https://codesandbox.io/s/vertical-writing-vue-wt97l1)
